@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--starter_intro_logo start -->
+    <dimen name="splash_logo_dermo_bella_padding">40dp</dimen>
+    <!--starter_intro_logo end -->
+
+    <dimen name="edit_text_size">18sp</dimen>
+    <dimen name="base_text_size">16sp</dimen>
+</resources>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list  xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- SHADOW LAYER -->
+    <item android:left="@dimen/edit_base_content_shadow" android:top="@dimen/edit_base_content_shadow">
+        <shape>
+            <gradient
+                android:angle="90"
+                android:endColor="@color/WHITE"
+                android:startColor="@color/GREY" />
+            <corners android:radius="@dimen/edit_base_content_radius"/>
+        </shape>
+    </item>
+    <!-- CONTENT LAYER -->
+    <item android:bottom="@dimen/edit_base_content_shadow" android:right="@dimen/edit_base_content_shadow">
+        <shape>
+            <stroke android:color="@color/GREY" android:width="1dp"/>
+            <gradient
+                android:angle="90"
+                android:endColor="@color/WHITE"
+                android:startColor="@color/WHITE" />
+            <padding android:left="@dimen/edit_base_content_padding"
+                android:top="@dimen/edit_base_content_padding"
+                android:right="@dimen/edit_base_content_padding"
+                android:bottom="@dimen/edit_base_content_padding" />
+            <corners
+                android:bottomLeftRadius="@dimen/edit_base_content_radius"
+                android:bottomRightRadius="@dimen/edit_base_content_radius"
+                android:topLeftRadius="@dimen/edit_base_content_radius"
+                android:topRightRadius="@dimen/edit_base_content_radius"/>
+        </shape>
+    </item>
+</layer-list>

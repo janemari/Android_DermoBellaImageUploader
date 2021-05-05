@@ -1,0 +1,53 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <!--splash  start -->
+    <dimen name="splash_logo_dermo_bella_padding">20dp</dimen>
+    <!--splash end -->
+
+    <!-- edit base  start -->
+    <dimen name="edit_base_content_radius">16dp</dimen>
+    <dimen name="edit_base_content_padding">6dp</dimen>
+    <dimen name="edit_base_content_shadow">1dp</dimen>
+    <!-- edit base end -->
+
+    <dimen name="edit_text_size">13sp</dimen>
+
+    <!-- generic spacer  start-->
+    <dimen name="spacer_margin_right">6dp</dimen>
+    <dimen name="spacer_margin_left">6dp</dimen>
+    <dimen name="spacer_margin_top">4dp</dimen>
+    <dimen name="spacer_margin_bottom">4dp</dimen>
+    <dimen name="spacer_margin_start">6dp</dimen>
+    <dimen name="spacer_margin_end">6dp</dimen>
+    <dimen name="spacer_margin">6dp</dimen>
+    <!-- generic spacer end -->
+
+    <!-- dialog base start-->
+    <dimen name="dialog_base_radius">16dp</dimen>
+    <dimen name="dialog_base_padding_large">32dp</dimen>
+    <dimen name="dialog_base_padding_small">8dp</dimen>
+    <!--dialog base end-->
+
+    <!-- txt header title start -->
+    <dimen name="txt_header_text_size">16sp</dimen>
+    <!-- txt header title end -->
+
+    <!-- generic spacer  start-->
+    <dimen name="spacer_padding_right">6dp</dimen>
+    <dimen name="spacer_padding_left">6dp</dimen>
+    <dimen name="spacer_padding_top">4dp</dimen>
+    <dimen name="spacer_padding_bottom">4dp</dimen>
+    <dimen name="spacer_padding_start">6dp</dimen>
+    <dimen name="spacer_padding_end">6dp</dimen>
+    <dimen name="spacer_padding">6dp</dimen>
+    <!-- generic spacer end -->
+
+    <dimen name="base_text_size">12sp</dimen>
+
+    <dimen name="bar_diagnosis_analyze_all_layout_height">40dp</dimen>
+    <dimen name="bar_diagnosis_analyze_all_margin_top">12dp</dimen>
+</resources>
