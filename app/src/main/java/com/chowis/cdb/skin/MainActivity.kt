@@ -31,7 +31,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        SharedPref.nextUploadedCount = 0
         mDbAdapter = DbSkinAdapter.getInstance(this@MainActivity)
 
         if (DermobellaPath.isOldDermobellaSDBExist(this)) {
@@ -75,6 +74,7 @@ class MainActivity : AppCompatActivity() {
                             args.putString("ssid", editText_SSID.text.toString().trim())
                             args.putString("bmId", editText_BMID.text.toString().trim())
                             args.putString("brandName", editText_BrandName.text.toString().trim())
+                            args.putString("optic_number", editText_OpticNumber.text.toString().trim())
 
                             val uploadActivityIntent = Intent(this, UploadProgressActivity::class.java)
                             uploadActivityIntent.putExtras(args)

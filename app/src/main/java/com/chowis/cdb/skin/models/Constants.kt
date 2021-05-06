@@ -1,10 +1,10 @@
 package com.chowis.cdb.skin.models
 
 import android.os.Environment
+import com.chowis.cdb.skin.utils.SharedPref
 import java.io.File
 
 object Constants {
-    private const val PROJECT_NAME = "MySkin-Choice-FFA"
     const val CLOUD_SERVER = "analysis.chowis.com"
     const val PORT = "3021"
 

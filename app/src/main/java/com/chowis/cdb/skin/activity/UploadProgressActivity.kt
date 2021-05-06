@@ -29,6 +29,7 @@ import kotlin.collections.ArrayList
 class UploadProgressActivity : AppCompatActivity() {
 
     var sizeToUpload = 0
+    var optic_number = ""
     var ssid = ""
     var bmId = ""
     var brandName = ""
@@ -44,9 +45,10 @@ class UploadProgressActivity : AppCompatActivity() {
         val extras = intent.extras
         if (extras != null) {
             imageList = extras.getSerializable("imageList") as ArrayList<String>
-            ssid = extras.getString("ssid","")
-            bmId = extras.getString("bmId","")
-            brandName = extras.getString("brandName","")
+            ssid = extras.getString("ssid", "")
+            bmId = extras.getString("bmId", "")
+            brandName = extras.getString("brandName", "")
+            optic_number = extras.getString("optic_number", "")
         }
         Timber.d("imageList=${imageList.size}")
 
@@ -124,9 +126,9 @@ class UploadProgressActivity : AppCompatActivity() {
 //        val device = editText_OpticNumber.text.toString().toPlainTextBody()
         val device = ssid.toPlainTextBody()
         val programBefore = "dermobella".toPlainTextBody() //TODO will change it to the correct one
-        val programAfter = "dermopico".toPlainTextBody() //TODO will change it to the correct one
+        val programAfter = "dermobella".toPlainTextBody() //TODO will change it to the correct one
 
-        val call = cloudService.uploadImage(paramsHeader, filePart, device,
+        val call = cloudService.uploadImage(optic_number, paramsHeader, filePart, device,
                 bmId.toPlainTextBody(), brandName.toPlainTextBody(), programBefore, programAfter)
 
         try {
