@@ -8,6 +8,7 @@
     <string name="enter_ssid_serial_number">Enter SSID or Serial Number</string>
     <string name="enter_ssid_serial_number_label">(You can find out the SSID or Serial Number on the label of the device.)</string>
     <string name="bm_id">BM ID</string>
+    <string name="confirm_bm_id">Confirm BM ID</string>
     <string name="enter_email_address_phone_number">Enter Email Address or Phone Number</string>
     <string name="enter_email_address_phone_number_label">(Please input the valid Email address that you are going to use for the future software, otherwise it may have error.)</string>
     <string name="brand_optional">Brand (Optional)</string>
@@ -37,5 +38,6 @@
     <string name="cancel_btn">Cancel</string>
     <string name="upload_complete">Upload Complete</string>
     <string name="fill_up_necessary_fields">Please fill up necessary fields!</string>
+    <string name="should_match_bmid">BM ID and Confirm BM ID must match!</string>
     <string name="total_uploaded">Total image uploaded: </string>
 </resources>

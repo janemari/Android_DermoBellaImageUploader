@@ -51,7 +51,9 @@ class MainActivity : AppCompatActivity() {
         btnSend.setOnClickListener {
             if (editText_OpticNumber.text!!.isEmpty() || editText_BMID.text!!.isEmpty()) {
                 showDialogMessage(getString(R.string.fill_up_necessary_fields))
-            } else {
+            }else if(editText_BMID.text!!.toString().trim().toUpperCase() != editText_ConfirmBMID.text!!.toString().trim().toUpperCase()){
+                showDialogMessage(getString(R.string.should_match_bmid))
+            }else {
                 showLottieLoadingDialog()
                 CoreUtils.hasInternetConnection().subscribe { hasInternet ->
                     hideLottieLoadingDialog()
