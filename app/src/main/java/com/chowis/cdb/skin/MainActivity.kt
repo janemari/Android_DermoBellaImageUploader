@@ -227,6 +227,7 @@ class MainActivity : AppCompatActivity() {
                     showDialogMessage(getString(R.string.not_exist_send_image_files))
                 }
                 2 -> {
+                    SharedPref.limitUploadCount = fileCount //Set limit count to max file count
                     btnSend.isEnabled = true
 
                     var message = getString(R.string.exist_send_image_files)
