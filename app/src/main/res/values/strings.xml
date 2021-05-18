@@ -29,8 +29,8 @@
     <string name="turnon_internet_upload_image">Please turn on internet to upload image.</string>
     <string name="no_remaining_image_to_upload">No remaining image to upload.</string>
 
-    <string name="exist_send_image_files" translatable="false">Press SEND to send the image(s).\n(It may takes a few minutes.).\nTotal Images found: </string>
-    <string name="not_exist_send_image_files" translatable="false">No images(s) to save.</string>
+    <string name="exist_send_image_files">Press SEND to send the image(s).\n(It may takes a few minutes.).\nTotal Images found: </string>
+    <string name="not_exist_send_image_files">No images(s) to save.</string>
 
     <string name="upload_image">Upload Images</string>
     <string name="upload">Upload</string>
