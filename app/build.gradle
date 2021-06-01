@@ -18,8 +18,8 @@ android {
             targetCompatibility JavaVersion.VERSION_1_8
         }
 
-        versionCode 3
-        versionName "3.0"
+        versionCode 5
+        versionName "1.4.1"
     }
 
     buildTypes {
