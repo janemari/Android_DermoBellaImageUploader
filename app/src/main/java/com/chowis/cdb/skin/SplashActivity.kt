@@ -53,16 +53,22 @@ class SplashActivity : AppCompatActivity() {
 
     private fun goToDermobellaSkinCloudMainActivity() {
         Timber.d("SharedPref.languageSelected=${SharedPref.selectedLanguage}")
-        if (SharedPref.selectedLanguage.isEmpty()) {
-            val systemLanguage = Locale.getDefault().language
-            SharedPref.selectedLanguage = systemLanguage
+        val systemLanguage = Locale.getDefault().language
+        SharedPref.selectedLanguage = systemLanguage
 
-            val languageHelper = LanguageHelper()
-            languageHelper.changeLanguage(SharedPref.selectedLanguage, this)
-        } else {
-            val languageHelper = LanguageHelper()
-            languageHelper.changeLanguage(SharedPref.selectedLanguage, this)
-        }
+        val languageHelper = LanguageHelper()
+        languageHelper.changeLanguage(SharedPref.selectedLanguage, this)
+
+//        if (SharedPref.selectedLanguage.isEmpty()) {
+//            val systemLanguage = Locale.getDefault().language
+//            SharedPref.selectedLanguage = systemLanguage
+//
+//            val languageHelper = LanguageHelper()
+//            languageHelper.changeLanguage(SharedPref.selectedLanguage, this)
+//        } else {
+//            val languageHelper = LanguageHelper()
+//            languageHelper.changeLanguage(SharedPref.selectedLanguage, this)
+//        }
 
         val mainActivityIntent = Intent(
                 applicationContext,

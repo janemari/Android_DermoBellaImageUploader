@@ -1,9 +1,52 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--starter_intro_logo start -->
-    <dimen name="splash_logo_dermo_bella_padding">40dp</dimen>
-    <!--starter_intro_logo end -->
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 
-    <dimen name="edit_text_size">18sp</dimen>
-    <dimen name="base_text_size">16sp</dimen>
+    <!--splash  start -->
+    <dimen name="splash_logo_dermo_bella_padding">20dp</dimen>
+    <!--splash end -->
+
+    <!-- edit base  start -->
+    <dimen name="edit_base_content_radius">16dp</dimen>
+    <dimen name="edit_base_content_padding">6dp</dimen>
+    <dimen name="edit_base_content_shadow">1dp</dimen>
+    <!-- edit base end -->
+
+    <dimen name="edit_text_size">16sp</dimen>
+    <dimen name="base_text_size">15sp</dimen>
+
+    <!-- generic spacer  start-->
+    <dimen name="spacer_margin_right">10dp</dimen>
+    <dimen name="spacer_margin_left">10dp</dimen>
+    <dimen name="spacer_margin_top">20dp</dimen>
+    <dimen name="spacer_margin_bottom">20dp</dimen>
+    <dimen name="spacer_margin_start">10dp</dimen>
+    <dimen name="spacer_margin_end">10dp</dimen>
+    <dimen name="spacer_margin">10dp</dimen>
+    <!-- generic spacer end -->
+
+    <!-- dialog base start-->
+    <dimen name="dialog_base_radius">16dp</dimen>
+    <dimen name="dialog_base_padding_large">32dp</dimen>
+    <dimen name="dialog_base_padding_small">8dp</dimen>
+    <!--dialog base end-->
+
+    <!-- txt header title start -->
+    <dimen name="txt_header_text_size">18sp</dimen>
+    <!-- txt header title end -->
+
+    <!-- generic spacer  start-->
+    <dimen name="spacer_padding_right">10dp</dimen>
+    <dimen name="spacer_padding_left">10dp</dimen>
+    <dimen name="spacer_padding_top">10dp</dimen>
+    <dimen name="spacer_padding_bottom">10dp</dimen>
+    <dimen name="spacer_padding_start">10dp</dimen>
+    <dimen name="spacer_padding_end">10dp</dimen>
+    <dimen name="spacer_padding">10dp</dimen>
+    <!-- generic spacer end -->
+
+    <dimen name="bar_diagnosis_analyze_all_layout_height">40dp</dimen>
+    <dimen name="bar_diagnosis_analyze_all_margin_top">12dp</dimen>
 </resources>

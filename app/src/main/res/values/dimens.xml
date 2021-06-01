@@ -15,12 +15,13 @@
     <!-- edit base end -->
 
     <dimen name="edit_text_size">13sp</dimen>
+    <dimen name="base_text_size">12sp</dimen>
 
     <!-- generic spacer  start-->
     <dimen name="spacer_margin_right">6dp</dimen>
     <dimen name="spacer_margin_left">6dp</dimen>
-    <dimen name="spacer_margin_top">10dp</dimen>
-    <dimen name="spacer_margin_bottom">10dp</dimen>
+    <dimen name="spacer_margin_top">15dp</dimen>
+    <dimen name="spacer_margin_bottom">15dp</dimen>
     <dimen name="spacer_margin_start">6dp</dimen>
     <dimen name="spacer_margin_end">6dp</dimen>
     <dimen name="spacer_margin">6dp</dimen>
@@ -45,8 +46,6 @@
     <dimen name="spacer_padding_end">6dp</dimen>
     <dimen name="spacer_padding">6dp</dimen>
     <!-- generic spacer end -->
-
-    <dimen name="base_text_size">12sp</dimen>
 
     <dimen name="bar_diagnosis_analyze_all_layout_height">40dp</dimen>
     <dimen name="bar_diagnosis_analyze_all_margin_top">12dp</dimen>

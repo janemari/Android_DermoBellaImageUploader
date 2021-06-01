@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
 
                         var bmId = editText_BMID.text!!.toString().trim()
                         if (bmId.isEmpty()){
-                            bmId = editText_country_code.text!!.toString().trim() + editText_phone_number.text!!.toString().trim()
+                            bmId = editText_country_code.selectedCountryCode + editText_phone_number.text!!.toString().trim()
                         }
 
                         if (imageListToUpload.size > 0) {

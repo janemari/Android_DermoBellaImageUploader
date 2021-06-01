@@ -1,17 +1,17 @@
 <resources>
     <string name="app_name">DB Skin Image Sender</string>
 
-    <string name="optic_number">Optic Number</string>
+    <string name="optic_number">ID Модуля (O.N.)</string>
     <string name="enter_optic_number">Enter Optic Number</string>
-    <string name="enter_optic_number_label">( Please, type Optic Number of the device you have. Optic Number is written on the device, usually starting from DVA or FAB etc. Please put all the letters and numbers. Optic number is very important information, so it must be correctly typed, otherwise you may experience wrong analysis or face difficulty on device activation. \n Example: DVAA1234 / FAB12345</string>
-    <string name="device_optional">Device (Optional)</string>
+    <string name="enter_optic_number_label">Пожалуйста, введите ID модуль вашего анализатора. ID модуль указан на анализаторе, обычно начиная с DVA или FAB и т.д.. Пожалуйста, укажите все буквы и цифры. ID модуль - очень важная информация, поэтому его необходимо правильно ввести, иначе вы можете столкнуться с ошибками при анализе или столкнуться с трудностями при активации устройства. \nПример: DVAA1234 / FAB12345</string>
+    <string name="device_optional">Модель анализатора</string>
     <string name="enter_ssid_serial_number">Enter SSID or Serial Number</string>
     <string name="enter_ssid_serial_number_label">(You can find out the SSID or Serial Number on the label of the device.)</string>
-    <string name="bm_id">BM ID</string>
+    <string name="bm_id">ID Аккаунта</string>
     <string name="confirm_bm_id">Confirm BM ID</string>
     <string name="enter_email_address">Enter Email Address</string>
-    <string name="enter_email_address_phone_number_label">(Please, type Email address or phone number. Please, put phone number after selecting the country code. The Email/Phone number will be used as user ID for the future program, and we will provide important information including license keys, and announcement contents.)</string>
-    <string name="brand_optional">Brand (Optional)</string>
+    <string name="enter_email_address_phone_number_label">Пожалуйста, введите адрес электронной почты или номер телефона. Пожалуйста, укажите номер телефона включая код страны. Адрес электронной почты / номер телефона будет использоваться в качестве идентификатора аккаунта для будущей программы, куда, также будут отправляться важные объявления и информация о лицензии.</string>
+    <string name="brand_optional">Название бренда</string>
     <string name="enter_brand_name">Enter Brand Name</string>
     <string name="country_code">C. Code</string>
     <string name="enter_phone_number">Enter Phone Number</string>
@@ -19,7 +19,7 @@
     <string name="close">Close</string>
     <string name="colon_mark">:</string>
     <string name="asterisk_mark">*</string>
-    <string name="brand_label_description">(Please write brand name if you are working with specific brand. If you are not working with brand, please, leave it empty.)</string>
+    <string name="brand_label_description">Пожалуйста, напишите название бренда, если вы работаете с конкретным брендом. Если вы не работаете с брендом, оставьте поле пустым.</string>
 
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">First Fragment</string>

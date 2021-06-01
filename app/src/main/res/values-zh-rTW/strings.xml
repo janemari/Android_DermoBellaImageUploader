@@ -1,17 +1,17 @@
 <resources>
     <string name="app_name">DB Skin Image Sender</string>
 
-    <string name="optic_number">Optic Number</string>
+    <string name="optic_number">鏡頭號碼（O.N.）</string>
     <string name="enter_optic_number">Enter Optic Number</string>
-    <string name="enter_optic_number_label">( Please, type Optic Number of the device you have. Optic Number is written on the device, usually starting from DVA or FAB etc. Please put all the letters and numbers. Optic number is very important information, so it must be correctly typed, otherwise you may experience wrong analysis or face difficulty on device activation. \n Example: DVAA1234 / FAB12345</string>
-    <string name="device_optional">Device (Optional)</string>
+    <string name="enter_optic_number_label">請寫下您使用過的儀器光學號碼（鏡頭號碼主要以FAB、DVA開始，是8種數位和字母） 鏡頭號碼是為了分析需要的號碼，所以需要輸入正確的號碼，如果鏡頭號碼不正確，機器可能不能正常操作。\nExample: DVAA1234 / FAB12345</string>
+    <string name="device_optional">機器序號</string>
     <string name="enter_ssid_serial_number">Enter SSID or Serial Number</string>
     <string name="enter_ssid_serial_number_label">(You can find out the SSID or Serial Number on the label of the device.)</string>
     <string name="bm_id">BM ID</string>
     <string name="confirm_bm_id">Confirm BM ID</string>
     <string name="enter_email_address">Enter Email Address</string>
-    <string name="enter_email_address_phone_number_label">(Please, type Email address or phone number. Please, put phone number after selecting the country code. The Email/Phone number will be used as user ID for the future program, and we will provide important information including license keys, and announcement contents.)</string>
-    <string name="brand_optional">Brand (Optional)</string>
+    <string name="enter_email_address_phone_number_label">請寫下以後要在軟件中使用的電子郵寄地址或電話號碼。該郵件提供公告事項、使用方法、程式許可、使用密碼等。請一定要寫上實際使用的郵箱地址。 電話號碼從國家號碼後面開始寫就可以。</string>
+    <string name="brand_optional">品牌</string>
     <string name="enter_brand_name">Enter Brand Name</string>
     <string name="country_code">C. Code</string>
     <string name="enter_phone_number">Enter Phone Number</string>
@@ -19,7 +19,7 @@
     <string name="close">Close</string>
     <string name="colon_mark">:</string>
     <string name="asterisk_mark">*</string>
-    <string name="brand_label_description">(Please write brand name if you are working with specific brand. If you are not working with brand, please, leave it empty.)</string>
+    <string name="brand_label_description">請填寫本公司使用的品牌。如果沒有品牌名稱，可不填。</string>
 
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">First Fragment</string>
