@@ -49,10 +49,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnSend.setOnClickListener {
-            if (editText_OpticNumber.text!!.isEmpty() || editText_BMID.text!!.isEmpty()) {
+            if (editText_OpticNumber.text!!.isEmpty()) {
                 showDialogMessage(getString(R.string.fill_up_necessary_fields))
-            }else if(editText_BMID.text!!.toString().trim().toUpperCase() != editText_ConfirmBMID.text!!.toString().trim().toUpperCase()){
-                showDialogMessage(getString(R.string.should_match_bmid))
+            }else if(editText_BMID.text!!.isEmpty() && editText_phone_number.text!!.isEmpty()){
+                showDialogMessage(getString(R.string.email_address_or_phone_required))
             }else {
                 showLottieLoadingDialog()
                 CoreUtils.hasInternetConnection().subscribe { hasInternet ->
@@ -70,11 +70,16 @@ class MainActivity : AppCompatActivity() {
                             Timber.d("ex=$ex")
                         }
 
+                        var bmId = editText_BMID.text!!.toString().trim()
+                        if (bmId.isEmpty()){
+                            bmId = editText_country_code.text!!.toString().trim() + editText_phone_number.text!!.toString().trim()
+                        }
+
                         if (imageListToUpload.size > 0) {
                             val args = Bundle()
                             args.putSerializable("imageList", imageListToUpload)
                             args.putString("ssid", editText_SSID.text.toString().trim())
-                            args.putString("bmId", editText_BMID.text.toString().trim())
+                            args.putString("bmId", bmId)
                             args.putString("brandName", editText_BrandName.text.toString().trim())
                             args.putString("optic_number", editText_OpticNumber.text.toString().trim())
 
