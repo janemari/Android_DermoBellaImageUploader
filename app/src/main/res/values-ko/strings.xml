@@ -2,21 +2,21 @@
     <string name="app_name">이미지 전송</string>
 
     <string name="optic_number">옵틱번호 (O.N)</string>
-    <string name="enter_optic_number">Enter Optic Number</string>
+    <string name="enter_optic_number">옵틱번호 입력 </string>
     <string name="enter_optic_number_label">사용하던 기기의 옵틱번호를 적어주세요 (옵틱번호는 주로 FAB, DVA 로 시작하며 8가지 숫자와 알파벳 입니다) 옵틱번호는 분석을 위해서 정확한 번호가 입력되어야 하며, 옵틱번호가 정확하지 않으면 기기가 동작하지 않을 수 있습니다. \nExample: DVAA1234 / FAB12345</string>
     <string name="device_optional">기기 시리일 번호</string>
-    <string name="enter_ssid_serial_number">Enter SSID or Serial Number</string>
-    <string name="enter_ssid_serial_number_label">(You can find out the SSID or Serial Number on the label of the device.)</string>
+    <string name="enter_ssid_serial_number">SSID 또는 기기 일련번호</string>
+    <string name="enter_ssid_serial_number_label">진단기 라벨에서 SSID 또는 일련번호(S.N)을 찾으실 수 있습니다. </string>
     <string name="bm_id">BM 아이디</string>
-    <string name="confirm_bm_id">Confirm BM ID</string>
-    <string name="enter_email_address">Enter Email Address</string>
+    <string name="confirm_bm_id">BM 아이디 확인 </string>
+    <string name="enter_email_address">이메일 주소 입력 </string>
     <string name="enter_email_address_phone_number_label">앞으로 프로그램에서 사용하게될 이메일 주소 혹은 전화번호를 적어주세요. 해당 이메일로 공지사항, 사용법, 그리고 프로그램 라이센스, 사용키 등이 제공됩니다. 꼭 실제사용하실 이메일 주소를 적어주세요. 전화번호는 국가번호 뒤부터 적으시면 됩니다.</string>
     <string name="brand_optional">브랜드</string>
-    <string name="enter_brand_name">Enter Brand Name</string>
-    <string name="country_code">C. Code</string>
-    <string name="enter_phone_number">Enter Phone Number</string>
-    <string name="send">Send</string>
-    <string name="close">Close</string>
+    <string name="enter_brand_name">브랜드명 입력 </string>
+    <string name="country_code">우편번호</string>
+    <string name="enter_phone_number">휴대전화번호 입력 </string>
+    <string name="send">보내기 </string>
+    <string name="close">닫기 </string>
     <string name="colon_mark">:</string>
     <string name="asterisk_mark">*</string>
     <string name="brand_label_description">본사에서 사용하는 브랜드를 적어주세요. 별도의 브랜드와 업무하고 있지 않은 개인사업이라면 적지 않으셔도 됩니다.</string>
@@ -27,21 +27,21 @@
     <string name="image_sender_crash_log">Image Sender Crash Log</string>
     <string name="application_error">Application error occurred. A report will be sent to the developers.</string>
 
-    <string name="btnok">OK</string>
-    <string name="notice_title">NOTICE</string>
-    <string name="turnon_internet_upload_image">Please turn on internet to upload image.</string>
-    <string name="no_remaining_image_to_upload">No remaining image to upload.</string>
+    <string name="btnok">확인</string>
+    <string name="notice_title">알림</string>
+    <string name="turnon_internet_upload_image">이미지 업로드를 위해 인터넷을 연결하십시오.</string>
+    <string name="no_remaining_image_to_upload">업로드 할 이미지가 없습니다. </string>
 
-    <string name="exist_send_image_files">Press SEND to send the image(s).\n(It may takes a few minutes.).\nTotal Images found: </string>
-    <string name="not_exist_send_image_files">No images(s) to save.</string>
+    <string name="exist_send_image_files">보내기 버튼을 누르고 이미지를 보내십시오.\n(이미지 전송을 위해 몇 분정도 소요됩니.).\n총 이미지 수: </string>
+    <string name="not_exist_send_image_files">이미지가 저장 되지 않았습니다. </string>
 
-    <string name="upload_image">Upload Images</string>
-    <string name="upload">Upload</string>
+    <string name="upload_image">이미지 업로드</string>
+    <string name="upload">업로드</string>
 
-    <string name="cancel_btn">Cancel</string>
-    <string name="upload_complete">Upload Complete</string>
-    <string name="fill_up_necessary_fields">Please fill up necessary fields!</string>
-    <string name="should_match_bmid">BM ID and Confirm BM ID must match!</string>
-    <string name="total_uploaded">Total image uploaded: </string>
-    <string name="email_address_or_phone_required">Entering email address or phone number is required.</string>
+    <string name="cancel_btn">취소</string>
+    <string name="upload_complete">업로드 완료 </string>
+    <string name="fill_up_necessary_fields">필수항목은 반드시 입력하십시오. </string>
+    <string name="should_match_bmid">BM ID가 일치하지 않습니다. 다시 한 번 확인하십시오. </string>
+    <string name="total_uploaded">모든 이미지가 업로드 됐습니다: </string>
+    <string name="email_address_or_phone_required">이메일 주소 또는 전화번호를 입력  하십시오.</string>
 </resources>

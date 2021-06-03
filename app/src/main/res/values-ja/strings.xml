@@ -2,21 +2,21 @@
     <string name="app_name">DB Skin Image Sender</string>
 
     <string name="optic_number">レンズ番号 (O.N)</string>
-    <string name="enter_optic_number">Enter Optic Number</string>
+    <string name="enter_optic_number">レンズ番号の入力</string>
     <string name="enter_optic_number_label">使用中のレンズ番号を入力してください。 （レンズ番号はDVA や FAB などから始まり、8字のアルファベットと数字となっております） レンズ番号は非常に重要な情報であるため、正しく入力する必要があります。正しく入力しないと、デバイスのアクティブ化に問題が発生する可能性があります。\n例：DVAA1234 / FAB12345</string>
     <string name="device_optional">機器シリアル番号</string>
-    <string name="enter_ssid_serial_number">Enter SSID or Serial Number</string>
-    <string name="enter_ssid_serial_number_label">(You can find out the SSID or Serial Number on the label of the device.)</string>
+    <string name="enter_ssid_serial_number">SSIDまたはシリアル番号を入力</string>
+    <string name="enter_ssid_serial_number_label">(SSIDまたはシリアル番号は、本体に付いているラベルで見つかることができます。)</string>
     <string name="bm_id">BM ID</string>
-    <string name="confirm_bm_id">Confirm BM ID</string>
-    <string name="enter_email_address">Enter Email Address</string>
+    <string name="confirm_bm_id">BM IDの確認</string>
+    <string name="enter_email_address">メールアドレスの入力</string>
     <string name="enter_email_address_phone_number_label">プログラムで使用するメールアドレスまたは電話番号を入力してください。 こちらのメールアドレスにお知らせ、使い方、プログラムライセンス、使用キーなどを提供します。 必ず実際に使用するメールアドレスを入力してください。電話番号は国家番号の後から入力してください。</string>
     <string name="brand_optional">ブランド</string>
-    <string name="enter_brand_name">Enter Brand Name</string>
-    <string name="country_code">C. Code</string>
-    <string name="enter_phone_number">Enter Phone Number</string>
-    <string name="send">Send</string>
-    <string name="close">Close</string>
+    <string name="enter_brand_name">ブランド名を入力</string>
+    <string name="country_code">C.コード</string>
+    <string name="enter_phone_number">携帯番号を入力</string>
+    <string name="send">送る</string>
+    <string name="close">閉じる</string>
     <string name="colon_mark">:</string>
     <string name="asterisk_mark">*</string>
     <string name="brand_label_description">特定のブランドを使用している場合は、ブランド名を記入してください。 ブランドを使用していない場合は、空欄にしてください。</string>
@@ -28,20 +28,20 @@
     <string name="application_error">Application error occurred. A report will be sent to the developers.</string>
 
     <string name="btnok">OK</string>
-    <string name="notice_title">NOTICE</string>
-    <string name="turnon_internet_upload_image">Please turn on internet to upload image.</string>
-    <string name="no_remaining_image_to_upload">No remaining image to upload.</string>
+    <string name="notice_title">お知らせ</string>
+    <string name="turnon_internet_upload_image">インターネットを開いて写真をアップロードしてください。</string>
+    <string name="no_remaining_image_to_upload">アップロードするイメージが見つかりません。</string>
 
-    <string name="exist_send_image_files">Press SEND to send the image(s).\n(It may takes a few minutes.).\nTotal Images found: </string>
-    <string name="not_exist_send_image_files">No images(s) to save.</string>
+    <string name="exist_send_image_files">「送る」を押してイメージを送信します。\n（数分かかることがあります。）\n検出されたイメージの合計枚数: </string>
+    <string name="not_exist_send_image_files">イメージが保存されていません。</string>
 
-    <string name="upload_image">Upload Images</string>
-    <string name="upload">Upload</string>
+    <string name="upload_image">イメージをアップロード</string>
+    <string name="upload">アップロード</string>
 
-    <string name="cancel_btn">Cancel</string>
-    <string name="upload_complete">Upload Complete</string>
-    <string name="fill_up_necessary_fields">Please fill up necessary fields!</string>
-    <string name="should_match_bmid">BM ID and Confirm BM ID must match!</string>
-    <string name="total_uploaded">Total image uploaded: </string>
-    <string name="email_address_or_phone_required">Entering email address or phone number is required.</string>
+    <string name="cancel_btn">取り消し</string>
+    <string name="upload_complete">アップロード完了</string>
+    <string name="fill_up_necessary_fields">必要項目を記入してください！</string>
+    <string name="should_match_bmid">BM IDとBM IDの確認が一致する必要があります。もう一度確認してください。</string>
+    <string name="total_uploaded">アップロードされたイメージの合計枚数 </string>
+    <string name="email_address_or_phone_required">メールアドレスまたは携帯番号の入力が必要です。</string>
 </resources>

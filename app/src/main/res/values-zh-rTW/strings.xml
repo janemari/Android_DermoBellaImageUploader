@@ -2,21 +2,21 @@
     <string name="app_name">DB Skin Image Sender</string>
 
     <string name="optic_number">鏡頭號碼（O.N.）</string>
-    <string name="enter_optic_number">Enter Optic Number</string>
+    <string name="enter_optic_number">輸入鏡頭號碼</string>
     <string name="enter_optic_number_label">請寫下您使用過的儀器光學號碼（鏡頭號碼主要以FAB、DVA開始，是8種數位和字母） 鏡頭號碼是為了分析需要的號碼，所以需要輸入正確的號碼，如果鏡頭號碼不正確，機器可能不能正常操作。\nExample: DVAA1234 / FAB12345</string>
     <string name="device_optional">機器序號</string>
-    <string name="enter_ssid_serial_number">Enter SSID or Serial Number</string>
-    <string name="enter_ssid_serial_number_label">(You can find out the SSID or Serial Number on the label of the device.)</string>
+    <string name="enter_ssid_serial_number">輸入SSID或序號</string>
+    <string name="enter_ssid_serial_number_label">（您可以在設備標籤上找到SSID或序號。）</string>
     <string name="bm_id">BM ID</string>
-    <string name="confirm_bm_id">Confirm BM ID</string>
-    <string name="enter_email_address">Enter Email Address</string>
+    <string name="confirm_bm_id">確認BM ID</string>
+    <string name="enter_email_address">輸入電子郵寄地址</string>
     <string name="enter_email_address_phone_number_label">請寫下以後要在軟件中使用的電子郵寄地址或電話號碼。該郵件提供公告事項、使用方法、程式許可、使用密碼等。請一定要寫上實際使用的郵箱地址。 電話號碼從國家號碼後面開始寫就可以。</string>
     <string name="brand_optional">品牌</string>
-    <string name="enter_brand_name">Enter Brand Name</string>
-    <string name="country_code">C. Code</string>
-    <string name="enter_phone_number">Enter Phone Number</string>
-    <string name="send">Send</string>
-    <string name="close">Close</string>
+    <string name="enter_brand_name">輸入品牌名稱</string>
+    <string name="country_code">C.代码</string>
+    <string name="enter_phone_number">输入电话号码</string>
+    <string name="send">發送</string>
+    <string name="close">關閉</string>
     <string name="colon_mark">:</string>
     <string name="asterisk_mark">*</string>
     <string name="brand_label_description">請填寫本公司使用的品牌。如果沒有品牌名稱，可不填。</string>
@@ -28,20 +28,20 @@
     <string name="application_error">Application error occurred. A report will be sent to the developers.</string>
 
     <string name="btnok">OK</string>
-    <string name="notice_title">NOTICE</string>
-    <string name="turnon_internet_upload_image">Please turn on internet to upload image.</string>
-    <string name="no_remaining_image_to_upload">No remaining image to upload.</string>
+    <string name="notice_title">通知</string>
+    <string name="turnon_internet_upload_image">請打開網絡上傳圖片。</string>
+    <string name="no_remaining_image_to_upload">沒有要上傳的影像。</string>
 
-    <string name="exist_send_image_files">Press SEND to send the image(s).\n(It may takes a few minutes.).\nTotal Images found: </string>
-    <string name="not_exist_send_image_files">No images(s) to save.</string>
+    <string name="exist_send_image_files">按“發送”發送影像。\n（可能需要幾分鐘時間。）。\n找到的影像總數：</string>
+    <string name="not_exist_send_image_files">沒有要保存的影像。</string>
 
-    <string name="upload_image">Upload Images</string>
-    <string name="upload">Upload</string>
+    <string name="upload_image">上載影像</string>
+    <string name="upload">上傳</string>
 
-    <string name="cancel_btn">Cancel</string>
-    <string name="upload_complete">Upload Complete</string>
-    <string name="fill_up_necessary_fields">Please fill up necessary fields!</string>
-    <string name="should_match_bmid">BM ID and Confirm BM ID must match!</string>
-    <string name="total_uploaded">Total image uploaded: </string>
-    <string name="email_address_or_phone_required">Entering email address or phone number is required.</string>
+    <string name="cancel_btn">取消</string>
+    <string name="upload_complete">上传完成</string>
+    <string name="fill_up_necessary_fields">请填写必要的字段！</string>
+    <string name="should_match_bmid">BM ID和Confirm BM ID必须匹配！</string>
+    <string name="total_uploaded">上载的图像总数： </string>
+    <string name="email_address_or_phone_required">需要输入电子邮件地址或电话号码。</string>
 </resources>
