@@ -4,6 +4,7 @@ import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.chowis.cdb.skin.activity.UploadProgressActivity
 import com.chowis.cdb.skin.dialog.AppDialog
@@ -32,6 +33,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+
         mDbAdapter = DbSkinAdapter.getInstance(this@MainActivity)
 
         /*if (DermobellaPath.isOldDermobellaSDBExist(this)) {
@@ -85,9 +89,9 @@ class MainActivity : AppCompatActivity() {
                         if (imageListToUpload.size > 0) {
                             val args = Bundle()
                             args.putSerializable("imageList", imageListToUpload)
-                            args.putString("ssid", editText_OpticNumber.text.toString().trim()) //Use optic number because it will be error from api if empty
+                            args.putString("ssid", "zip_data") //add string because it will be error from api if empty
                             args.putString("bmId", bmId)
-                            args.putString("brandName", "zip_data") //Use optic number because it will be error from api if empty
+                            args.putString("brandName", "zip_data") //add string because it will be error from api if empty
                             args.putString("optic_number", editText_OpticNumber.text.toString().trim())
 
                             val uploadActivityIntent = Intent(this, UploadProgressActivity::class.java)
