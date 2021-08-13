@@ -44,4 +44,6 @@
     <string name="should_match_bmid">BM ID和Confirm BM ID必须匹配！</string>
     <string name="total_uploaded">上载的图像总数： </string>
     <string name="email_address_or_phone_required">需要输入电子邮件地址或电话号码。</string>
+
+    <string name="the_backup_file">已不存在備份檔案</string>
 </resources>

@@ -50,123 +50,30 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="@string/device_optional"
+            android:layout_height="wrap_content"
+            android:text="@string/email_address"
             android:gravity="start|center"
             android:textColor="@color/BLACK"
             app:layout_constraintStart_toStartOf="@id/guideline_vertical_start"
             app:layout_constraintEnd_toEndOf="@id/guideline_vertical_1"
-            app:layout_constraintTop_toTopOf="@id/editText_SSID"
-            app:layout_constraintBottom_toBottomOf="@id/editText_SSID"/>
+            app:layout_constraintTop_toTopOf="@id/editText_BMID"
+            app:layout_constraintBottom_toBottomOf="@id/editText_BMID"/>
 
         <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/editText_SSID"
+            android:id="@+id/editText_BMID"
+            style="@style/edit_text_style"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:minHeight="50dp"
-            style="@style/edit_text_style"
-            android:hint="@string/enter_ssid_serial_number"
             android:gravity="start|center"
+            android:hint="@string/enter_email_address"
+            android:inputType="textEmailAddress"
+            android:maxLength="50"
+            android:minHeight="50dp"
             android:padding="10dp"
-            android:inputType="text"
             android:layout_marginTop="@dimen/spacer_margin_top"
             app:layout_constraintStart_toStartOf="@id/guideline_vertical_3"
             app:layout_constraintEnd_toEndOf="@id/guideline_vertical_end"
             app:layout_constraintTop_toBottomOf="@id/label_enter_optic_number_description"/>
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/label_ssid_description"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/enter_ssid_serial_number_label"
-            android:gravity="start|center"
-            android:textSize="@dimen/base_text_size"
-            android:layout_marginTop="@dimen/spacer_margin"
-            app:layout_constraintStart_toStartOf="@id/guideline_vertical_3"
-            app:layout_constraintEnd_toEndOf="@id/guideline_vertical_end"
-            app:layout_constraintTop_toBottomOf="@id/editText_SSID"/>
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="@string/bm_id"
-            android:gravity="start|center"
-            android:textColor="@color/BLACK"
-            app:layout_constraintStart_toStartOf="@id/guideline_vertical_start"
-            app:layout_constraintEnd_toEndOf="@id/guideline_vertical_1"
-            app:layout_constraintTop_toTopOf="@id/constraint_bm_email"
-            app:layout_constraintBottom_toBottomOf="@id/constraint_bm_email"/>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraint_bm_email"
-            style="@style/edit_text_style"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/spacer_padding"
-            android:background="@color/LIGHT_GREY"
-            android:layout_marginTop="@dimen/spacer_margin_top"
-            app:layout_constraintStart_toStartOf="@id/guideline_vertical_3"
-            app:layout_constraintEnd_toEndOf="@id/guideline_vertical_end"
-            app:layout_constraintTop_toBottomOf="@id/label_ssid_description">
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/label_phone_or_email_required"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/email_address_or_phone_required"
-                android:textSize="@dimen/base_text_size"
-                android:padding="@dimen/spacer_padding"
-                android:textColor="@color/DIM_GREY"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/editText_BMID"/>
-
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/editText_BMID"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="50dp"
-                style="@style/edit_text_style"
-                android:hint="@string/enter_email_address"
-                android:gravity="start|center"
-                android:padding="10dp"
-                android:maxLength="50"
-                android:inputType="textEmailAddress"
-                android:layout_marginBottom="@dimen/spacer_margin"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/label_phone_or_email_required"
-                app:layout_constraintBottom_toTopOf="@id/editText_country_code"/>
-
-            <com.hbb20.CountryCodePicker
-                android:id="@+id/editText_country_code"
-                style="@style/edit_text_style"
-                android:layout_width="150dp"
-                android:layout_height="0dp"
-                android:gravity="start|center"
-                android:layout_marginEnd="5dp"
-                app:ccp_defaultPhoneCode="82"
-                app:ccp_textSize="@dimen/base_text_size"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/editText_phone_number"
-                app:layout_constraintBottom_toBottomOf="@id/editText_phone_number"/>
-
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/editText_phone_number"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:minHeight="50dp"
-                style="@style/edit_text_style"
-                android:gravity="start|center"
-                android:padding="10dp"
-                android:maxLength="15"
-                android:hint="@string/enter_phone_number"
-                android:inputType="phone"
-                app:layout_constraintStart_toEndOf="@id/editText_country_code"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/editText_BMID"
-                app:layout_constraintBottom_toBottomOf="parent"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
@@ -175,58 +82,21 @@
             android:textColor="@color/RED"
             android:gravity="center"
             app:layout_constraintEnd_toStartOf="@id/guideline_vertical_3"
-            app:layout_constraintTop_toTopOf="@id/constraint_bm_email"
-            app:layout_constraintBottom_toBottomOf="@id/constraint_bm_email"/>
+            app:layout_constraintTop_toTopOf="@id/editText_BMID"
+            app:layout_constraintBottom_toBottomOf="@id/editText_BMID"/>
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/label_bm_email_description"
+            android:id="@+id/label_input_email"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/enter_email_address_phone_number_label"
+            android:text="@string/please_input_email"
             android:gravity="start|center"
+            android:textColor="@color/DIM_GREY"
             android:textSize="@dimen/base_text_size"
             android:layout_marginTop="@dimen/spacer_margin"
-            app:layout_constraintStart_toStartOf="@id/guideline_vertical_3"
-            app:layout_constraintEnd_toEndOf="@id/guideline_vertical_end"
-            app:layout_constraintTop_toBottomOf="@id/constraint_bm_email"/>
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="@string/brand_optional"
-            android:gravity="start|center"
-            android:textColor="@color/BLACK"
-            app:layout_constraintStart_toStartOf="@id/guideline_vertical_start"
-            app:layout_constraintEnd_toEndOf="@id/guideline_vertical_1"
-            app:layout_constraintTop_toTopOf="@id/editText_BrandName"
-            app:layout_constraintBottom_toBottomOf="@id/editText_BrandName"/>
-
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/editText_BrandName"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:minHeight="50dp"
-            style="@style/edit_text_style"
-            android:hint="@string/enter_brand_name"
-            android:gravity="start|center"
-            android:padding="10dp"
-            android:inputType="text"
-            android:layout_marginTop="@dimen/spacer_margin_top"
-            app:layout_constraintStart_toStartOf="@id/guideline_vertical_3"
-            app:layout_constraintEnd_toEndOf="@id/guideline_vertical_end"
-            app:layout_constraintTop_toBottomOf="@id/label_bm_email_description"/>
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/label_brand_description"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/brand_label_description"
-            android:gravity="start|center"
-            android:textSize="@dimen/base_text_size"
-            android:layout_marginTop="@dimen/spacer_margin"
-            app:layout_constraintStart_toStartOf="@id/guideline_vertical_3"
-            app:layout_constraintEnd_toEndOf="@id/guideline_vertical_end"
-            app:layout_constraintTop_toBottomOf="@id/editText_BrandName"/>
+            app:layout_constraintStart_toStartOf="@id/editText_BMID"
+            app:layout_constraintEnd_toEndOf="@id/editText_BMID"
+            app:layout_constraintTop_toBottomOf="@id/editText_BMID"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnClose"
@@ -237,9 +107,7 @@
             android:textAllCaps="false"
             android:padding="10dp"
             android:layout_marginEnd="10dp"
-            android:layout_marginBottom="@dimen/spacer_margin_bottom"
-            android:layout_marginTop="@dimen/spacer_margin_top"
-            app:layout_constraintTop_toBottomOf="@id/label_brand_description"
+            app:layout_constraintTop_toBottomOf="@id/label_input_email"
             app:layout_constraintEnd_toStartOf="@id/btnSend"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
@@ -251,9 +119,6 @@
             android:text="@string/send"
             android:textAllCaps="false"
             android:padding="10dp"
-            android:enabled="false"
-            android:layout_marginTop="@dimen/spacer_margin_top"
-            android:layout_marginBottom="@dimen/spacer_margin_bottom"
             app:layout_constraintBottom_toBottomOf="@id/btnClose"
             app:layout_constraintTop_toTopOf="@id/btnClose"
             app:layout_constraintEnd_toEndOf="@id/guideline_vertical_end"/>
@@ -280,33 +145,13 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/colon_mark"
-            android:gravity="center"
-            app:layout_constraintStart_toStartOf="@id/guideline_vertical_1"
-            app:layout_constraintEnd_toEndOf="@id/guideline_vertical_2"
-            app:layout_constraintTop_toTopOf="@id/editText_SSID"
-            app:layout_constraintBottom_toBottomOf="@id/editText_SSID"/>
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="0dp"
             android:layout_height="0dp"
             android:text="@string/colon_mark"
             android:gravity="center"
             app:layout_constraintStart_toStartOf="@id/guideline_vertical_1"
             app:layout_constraintEnd_toEndOf="@id/guideline_vertical_2"
-            app:layout_constraintTop_toTopOf="@id/constraint_bm_email"
-            app:layout_constraintBottom_toBottomOf="@id/constraint_bm_email"/>
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/colon_mark"
-            android:gravity="center"
-            app:layout_constraintStart_toStartOf="@id/guideline_vertical_1"
-            app:layout_constraintEnd_toEndOf="@id/guideline_vertical_2"
-            app:layout_constraintTop_toTopOf="@id/editText_BrandName"
-            app:layout_constraintBottom_toBottomOf="@id/editText_BrandName"/>
+            app:layout_constraintTop_toTopOf="@id/editText_BMID"
+            app:layout_constraintBottom_toBottomOf="@id/editText_BMID"/>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline_horizontal_2"

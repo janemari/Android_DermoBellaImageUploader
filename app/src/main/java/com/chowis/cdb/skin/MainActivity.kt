@@ -3,19 +3,20 @@ package com.chowis.cdb.skin
 import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
+import android.text.TextUtils
 import androidx.appcompat.app.AppCompatActivity
-import com.chowis.cdb.skin.utils.SharedPref
 import com.chowis.cdb.skin.activity.UploadProgressActivity
 import com.chowis.cdb.skin.dialog.AppDialog
 import com.chowis.cdb.skin.handler.DbSkinAdapter
 import com.chowis.cdb.skin.helper.DermobellaPath
 import com.chowis.cdb.skin.models.Constants
+import com.chowis.cdb.skin.models.Constants.BACKUPPATH
 import com.chowis.cdb.skin.utils.CoreUtils
+import com.chowis.cdb.skin.utils.SharedPref
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.*
 import timber.log.Timber
 import java.io.File
-import kotlin.collections.ArrayList
 import kotlin.coroutines.CoroutineContext
 
 
@@ -33,9 +34,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         mDbAdapter = DbSkinAdapter.getInstance(this@MainActivity)
 
-        if (DermobellaPath.isOldDermobellaSDBExist(this)) {
+        /*if (DermobellaPath.isOldDermobellaSDBExist(this)) {
             onCheckFileToSendServer().execute()
-        }
+        }*/
 
         btnClose.setOnClickListener {
             requestsUploadImages.forEach {
@@ -49,10 +50,15 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnSend.setOnClickListener {
+            if (SharedPref.nextUploadedCount > 0){
+                showDialogMessage(getString(R.string.backup_file_already_uploaded))
+                return@setOnClickListener
+            }
+
             if (editText_OpticNumber.text!!.isEmpty()) {
                 showDialogMessage(getString(R.string.fill_up_necessary_fields))
-            }else if(editText_BMID.text!!.isEmpty() && editText_phone_number.text!!.isEmpty()){
-                showDialogMessage(getString(R.string.email_address_or_phone_required))
+            }else if(editText_BMID.text!!.isEmpty()){
+                showDialogMessage(getString(R.string.email_address_required))
             }else {
                 showLottieLoadingDialog()
                 CoreUtils.hasInternetConnection().subscribe { hasInternet ->
@@ -61,26 +67,27 @@ class MainActivity : AppCompatActivity() {
                     if (hasInternet) {
                         val imageListToUpload = ArrayList<String>()
                         try {
-                            val from = SharedPref.nextUploadedCount //Get next to upload
-                            val to = (SharedPref.nextUploadedCount + SharedPref.limitUploadCount) - 1 //Set next limit
-                            for (i in from..to) {
-                                imageListToUpload.add(mSearchList[i])
-                            }
+                            val backupFile = GetBackupFileName(BACKUPPATH)
+                            if (!backupFile.isNullOrEmpty())
+                                imageListToUpload.add(backupFile)
+//                            //multiple images is attached
+//                            val from = SharedPref.nextUploadedCount //Get next to upload
+//                            val to = (SharedPref.nextUploadedCount + SharedPref.limitUploadCount) - 1 //Set next limit
+//                            for (i in from..to) {
+//                                imageListToUpload.add(mSearchList[i])
+//                            }
                         } catch (ex: Exception) {
                             Timber.d("ex=$ex")
                         }
 
-                        var bmId = editText_BMID.text!!.toString().trim()
-                        if (bmId.isEmpty()){
-                            bmId = editText_country_code.selectedCountryCode + editText_phone_number.text!!.toString().trim()
-                        }
+                        val bmId = editText_BMID.text!!.toString().trim()
 
                         if (imageListToUpload.size > 0) {
                             val args = Bundle()
                             args.putSerializable("imageList", imageListToUpload)
-                            args.putString("ssid", editText_SSID.text.toString().trim())
+                            args.putString("ssid", editText_OpticNumber.text.toString().trim()) //Use optic number because it will be error from api if empty
                             args.putString("bmId", bmId)
-                            args.putString("brandName", editText_BrandName.text.toString().trim())
+                            args.putString("brandName", "zip_data") //Use optic number because it will be error from api if empty
                             args.putString("optic_number", editText_OpticNumber.text.toString().trim())
 
                             val uploadActivityIntent = Intent(this, UploadProgressActivity::class.java)
@@ -241,5 +248,29 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun GetBackupFileName(path: String): String? {
+        val dirBackup = File(path)
+        if (TextUtils.isEmpty(path) || !dirBackup.exists()) {
+            showDialogMessage(getString(R.string.the_backup_file))
+            return null
+        }
+        var fileListSrc: Array<File>? = null
+        // dirFileSrc = new File( folderBackup );
+        fileListSrc = dirBackup.listFiles()
+        if (null == fileListSrc || fileListSrc.size < 1) {
+            showDialogMessage(getString(R.string.the_backup_file))
+            return null
+        }
+        var lp = 0
+        var backupFileName: String? = null
+        for (one in fileListSrc) {
+            if (one.isFile) {
+                lp++
+                backupFileName = one.parent + File.separator + one.name
+            }
+        }
+        return backupFileName
     }
 }

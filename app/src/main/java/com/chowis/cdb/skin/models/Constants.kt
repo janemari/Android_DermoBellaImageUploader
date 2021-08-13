@@ -1,7 +1,6 @@
 package com.chowis.cdb.skin.models
 
 import android.os.Environment
-import com.chowis.cdb.skin.utils.SharedPref
 import java.io.File
 
 object Constants {
@@ -17,4 +16,6 @@ object Constants {
     var SKINLOOKPATH = Environment.getExternalStorageDirectory().toString() + File.separator + PROJECTNAME
     var IMAGEPATH = SKINLOOKPATH + File.separator + "images"
     var CLIENT_PATH = IMAGEPATH + File.separator + "clients"
+
+    var BACKUPPATH = Environment.getExternalStorageDirectory().toString() + File.separator + "Backups" + File.separator
 }

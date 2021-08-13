@@ -3,8 +3,10 @@ package com.chowis.cdb.skin.activity
 import android.content.res.Configuration
 import android.os.Bundle
 import android.util.DisplayMetrics
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.chowis.cdb.skin.R
+import com.chowis.cdb.skin.dialog.AppDialog
 import com.chowis.cdb.skin.models.Constants
 import com.chowis.cdb.skin.service.CloudService
 import com.chowis.cdb.skin.utils.SharedPref
@@ -58,8 +60,8 @@ class UploadProgressActivity : AppCompatActivity() {
             imageList.size
         }
 
-        txt_upload_progress_text.text = "0 / $sizeToUpload"
-        progress_bar_loading.max = sizeToUpload
+//        txt_upload_progress_text.text = "0 / $sizeToUpload"
+//        progress_bar_loading.max = sizeToUpload
 
         btn_upload_cancel.setOnClickListener {
             isCancelUpload = true
@@ -68,37 +70,65 @@ class UploadProgressActivity : AppCompatActivity() {
 
         Timber.d("imageList=${imageList.size}")
 
+        showLottieProgress(true, false)
+        var isSuccess = true
         val lastImageCount = SharedPref.nextUploadedCount
         CoroutineScope(Dispatchers.IO).launch {
             imageList.forEachIndexed { index, it ->
                 if (!isCancelUpload){
                     runBlocking {
                         try {
-                            uploadImage(it.trim())
+                            Timber.d("uploading file=${it}")
+
+                            isSuccess = uploadImage(it.trim())
                         } catch (se: SocketTimeoutException) {
                             Timber.d("Error: $se")
+                            isSuccess = false
+                            runOnUiThread {
+                                txt_download_progress.visibility = View.VISIBLE
+                                txt_download_progress.text = se.toString()
+                                showLottieProgress(false, false)
+                            }
                             // display timeout alert to user
                         } catch (e: IOException) {
                             Timber.d("Error: $e")
+                            isSuccess = false
+                            runOnUiThread {
+                                txt_download_progress.visibility = View.VISIBLE
+                                txt_download_progress.text = e.toString()
+                                showLottieProgress(false, false)
+                            }
                             // handle general IO error
                         } catch (e: Exception) {
                             Timber.d("Error: $e")
+                            isSuccess = false
+                            runOnUiThread {
+                                txt_download_progress.visibility = View.VISIBLE
+                                txt_download_progress.text = e.toString()
+                                showLottieProgress(false, false)
+                            }
                             // just in case you missed anything else
                         } finally {}
                     }
 
                     withContext(Dispatchers.Main) {
-                        SharedPref.nextUploadedCount = lastImageCount + (index + 1)
-                        progress_bar_loading.progress = index + 1
-                        txt_download_progress.text = "${getString(R.string.total_uploaded)} ${SharedPref.nextUploadedCount}"
-                        txt_upload_progress_text.text = "${progress_bar_loading.progress} / $sizeToUpload"
+                        if (isSuccess) {
+                            SharedPref.nextUploadedCount = lastImageCount + (index + 1)
+                            txt_download_progress.visibility = View.VISIBLE
+                            txt_download_progress.text = getString(R.string.upload_complete)
+                            showLottieProgress(false, true)
 
-                        if (imageList.lastIndex == index) {
-                            GlobalScope.launch {
-                                txt_download_progress.text = getString(R.string.upload_complete)
-                                delay(1000L)
-                                this@UploadProgressActivity.finish()
-                            }
+//                            progress_bar_loading.progress = index + 1
+//                        txt_download_progress.text = "${getString(R.string.total_uploaded)} ${SharedPref.nextUploadedCount}"
+//                            txt_upload_progress_text.text = "${progress_bar_loading.progress} / $sizeToUpload"
+
+//                            if (imageList.lastIndex == index) {
+//                                GlobalScope.launch {
+//                                    txt_download_progress.text = getString(R.string.upload_complete)
+//                                    delay(1000L)
+//                                    this@UploadProgressActivity.finish()
+//                                }
+//                            }
                         }
                     }
                 }else {
@@ -117,37 +147,32 @@ class UploadProgressActivity : AppCompatActivity() {
 
         val cloudService = retrofit.create(CloudService::class.java)
         val paramsHeader: MutableMap<String, Any> = HashMap()
-        paramsHeader["access_token"] = Constants.TOKEN //TODO Token value
+        paramsHeader["access_token"] = Constants.TOKEN
 
         val file = File(path)
-        val fileUpload = file.asRequestBody("image/jpeg".toMediaType())
+        val fileUpload = file.asRequestBody("application/zip".toMediaType())
         val filePart = createPart(file, fileUpload)
 
-//        val device = editText_OpticNumber.text.toString().toPlainTextBody()
         val device = ssid.toPlainTextBody()
-        val programBefore = "dermobella".toPlainTextBody() //TODO will change it to the correct one
-        val programAfter = "dermobella".toPlainTextBody() //TODO will change it to the correct one
+        val programBefore = "zip_data".toPlainTextBody()
+        val programAfter = "zip_data".toPlainTextBody()
 
         val call = cloudService.uploadImage(optic_number, paramsHeader, filePart, device,
                 bmId.toPlainTextBody(), brandName.toPlainTextBody(), programBefore, programAfter)
 
-        try {
-            val response = call.execute()
-            val responseString = response.body()!!.string()
-            Timber.d("response.body()=%s", response)
-            val obj = JSONObject(responseString)
-            Timber.d("obj=%s", obj)
-            val status = obj.getInt("status")
-            if (status == 200) {
-                Timber.d("uploadImage=Success Upload")
-                isSuccess = true
+        val response = call.execute()
+        val responseString = response.body()!!.string()
+        Timber.d("response.body()=%s", response)
+        val obj = JSONObject(responseString)
+        Timber.d("obj=%s", obj)
+        val status = obj.getInt("status")
+        if (status == 200) {
+            Timber.d("uploadImage=Success Upload")
+            isSuccess = true
 
 //                val body = obj.getJSONObject("body")
 //                token = body.getString("access_token")
 //                Timber.d("accessToken=%s", token)
-            }
-        } catch (e: IOException) {
-            Timber.e(e)
         }
 
         return isSuccess
@@ -171,5 +196,20 @@ class UploadProgressActivity : AppCompatActivity() {
             window.setLayout((width * 0.95).toInt(), (height * 0.75).toInt())
         }
         window.setBackgroundDrawableResource(android.R.color.transparent)
+    }
+
+    private fun showLottieProgress(showLoading: Boolean, isSuccess: Boolean){
+        if (showLoading){
+            lottieAnimationView.setAnimation("loading_arrow.json")
+            lottieAnimationView.playAnimation()
+        }else{
+            if (isSuccess) {
+                lottieAnimationView.setAnimation("checkmark.json")
+                lottieAnimationView.playAnimation()
+            } else {
+                lottieAnimationView.setAnimation("wrongmark.json")
+                lottieAnimationView.playAnimation()
+            }
+        }
     }
 }

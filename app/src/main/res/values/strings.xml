@@ -8,6 +8,8 @@
     <string name="enter_ssid_serial_number">Enter SSID or Serial Number</string>
     <string name="enter_ssid_serial_number_label">(You can find out the SSID or Serial Number on the label of the device.)</string>
     <string name="bm_id">BM ID</string>
+    <string name="email_address">E-MAIL</string>
+    <string name="please_input_email">(Please input your email.)</string>
     <string name="confirm_bm_id">Confirm BM ID</string>
     <string name="enter_email_address">Enter Email Address</string>
     <string name="enter_email_address_phone_number_label">(Please, type Email address or phone number. Please, put phone number after selecting the country code. The Email/Phone number will be used as user ID for the future program, and we will provide important information including license keys, and announcement contents.)</string>
@@ -44,4 +46,9 @@
     <string name="should_match_bmid">BM ID and Confirm BM ID must match!</string>
     <string name="total_uploaded">Total image uploaded: </string>
     <string name="email_address_or_phone_required">Entering email address or phone number is required.</string>
+    <string name="email_address_required">Entering email address.</string>
+
+    <string name="the_backup_file" translatable="false">The backup file does not exist.</string>
+
+    <string name="backup_file_already_uploaded">Backup file was already uploaded!</string>
 </resources>

@@ -44,4 +44,6 @@
     <string name="should_match_bmid">BM IDとBM IDの確認が一致する必要があります。もう一度確認してください。</string>
     <string name="total_uploaded">アップロードされたイメージの合計枚数 </string>
     <string name="email_address_or_phone_required">メールアドレスまたは携帯番号の入力が必要です。</string>
+
+    <string name="the_backup_file">バックアップデータがありません。</string>
 </resources>

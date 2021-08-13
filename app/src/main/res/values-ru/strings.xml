@@ -44,4 +44,6 @@
     <string name="should_match_bmid">Аккаунт ID и подтвердите аккаунт ID поля должны содержать одинаковую информацию. </string>
     <string name="total_uploaded">Общее количество отправленных изображений: </string>
     <string name="email_address_or_phone_required">Введение Email или номер телефона обязательные</string>
+
+    <string name="the_backup_file">Резервные файлы отсутствуют</string>
 </resources>
