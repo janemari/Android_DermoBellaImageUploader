@@ -81,9 +81,9 @@ class MainActivity : AppCompatActivity() {
                     val currentTime = Calendar.getInstance().time
 
                     val folderBackup = BACKUPPATH
-                    //delete the folder first to remove the files inside
-                    val file = File(folderBackup)
-                    file.deleteRecursively()
+//                    //delete the folder first to remove the files inside
+//                    val file = File(folderBackup)
+//                    file.deleteRecursively()
 
                     val dirBackup = File(folderBackup)
                     if (!dirBackup.exists()) {
