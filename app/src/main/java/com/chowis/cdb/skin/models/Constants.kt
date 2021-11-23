@@ -18,4 +18,7 @@ object Constants {
     var CLIENT_PATH = IMAGEPATH + File.separator + "clients"
 
     var BACKUPPATH = Environment.getExternalStorageDirectory().toString() + File.separator + "Backups" + File.separator
+
+    var CLIENT_DB_PATH = Environment.getExternalStorageDirectory().toString() + File.separator + CLIENT_DBNAME
+    var PRODUCT_DB_PATH = Environment.getExternalStorageDirectory().toString() + File.separator + "DermoPrime"
 }
