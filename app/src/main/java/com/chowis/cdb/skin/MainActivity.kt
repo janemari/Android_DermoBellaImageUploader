@@ -6,18 +6,25 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.chowis.cdb.skin.activity.UploadProgressActivity
 import com.chowis.cdb.skin.dialog.AppDialog
 import com.chowis.cdb.skin.handler.DbSkinAdapter
-import com.chowis.cdb.skin.helper.DermobellaPath
 import com.chowis.cdb.skin.models.Constants
 import com.chowis.cdb.skin.models.Constants.BACKUPPATH
 import com.chowis.cdb.skin.utils.CoreUtils
 import com.chowis.cdb.skin.utils.SharedPref
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.*
+import net.lingala.zip4j.ZipFile
+import net.lingala.zip4j.model.ZipParameters
+import net.lingala.zip4j.model.enums.CompressionLevel
+import net.lingala.zip4j.model.enums.CompressionMethod
 import timber.log.Timber
 import java.io.File
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 import kotlin.coroutines.CoroutineContext
 
 
@@ -64,29 +71,52 @@ class MainActivity : AppCompatActivity() {
             }else if(editText_BMID.text!!.isEmpty()){
                 showDialogMessage(getString(R.string.email_address_required))
             }else {
-                showLottieLoadingDialog()
-                CoreUtils.hasInternetConnection().subscribe { hasInternet ->
-                    hideLottieLoadingDialog()
+                if (CoreUtils.isOnline(this)){
+                    val imageListToUpload = ArrayList<String>()
 
-                    if (hasInternet) {
-                        val imageListToUpload = ArrayList<String>()
-                        try {
-                            val backupFile = GetBackupFileName(BACKUPPATH)
-                            if (!backupFile.isNullOrEmpty())
-                                imageListToUpload.add(backupFile)
-//                            //multiple images is attached
-//                            val from = SharedPref.nextUploadedCount //Get next to upload
-//                            val to = (SharedPref.nextUploadedCount + SharedPref.limitUploadCount) - 1 //Set next limit
-//                            for (i in from..to) {
-//                                imageListToUpload.add(mSearchList[i])
-//                            }
-                        } catch (ex: Exception) {
-                            Timber.d("ex=$ex")
-                        }
+                    val dir = File(Constants.SKINLOOKPATH)
+                    if (!dir.exists()) dir.mkdirs()
+
+                    val formatter = SimpleDateFormat("yyyyMMddHHmmss", Locale.getDefault())
+                    val currentTime = Calendar.getInstance().time
+
+                    val folderBackup = BACKUPPATH
+                    //delete the folder first to remove the files inside
+                    val file = File(folderBackup)
+                    file.deleteRecursively()
+
+                    val dirBackup = File(folderBackup)
+                    if (!dirBackup.exists()) {
+                        dirBackup.mkdirs()
+                    }
+
+                    val zipFile = folderBackup + "backup_" + formatter.format(currentTime) + ".zip"
+
+                    lifecycleScope.executeAsyncTask(onPreExecute = {
+                        showLottieLoadingDialog()
+                    }, doInBackground = {
+                        val zip = ZipFile(zipFile)
+                        val parameters = ZipParameters()
+                        parameters.compressionMethod = CompressionMethod.DEFLATE
+                        parameters.compressionLevel = CompressionLevel.NORMAL
+                        zip.addFolder(File(Constants.SKINLOOKPATH), parameters)
+                        zip.addFolder(File(Constants.CLIENT_DB_PATH), parameters)
+                        zip.addFolder(File(Constants.PRODUCT_DB_PATH), parameters)
+                    }, onPostExecute = {
+                        imageListToUpload.add(zipFile)
+
+//                    try {
+//
+//                        val backupFile = getBackupFileName(BACKUPPATH)
+//                        if (!backupFile.isNullOrEmpty())
+//                            imageListToUpload.add(backupFile)
+//                    } catch (ex: Exception) {
+//                        Timber.d("ex=$ex")
+//                    }
 
                         val bmId = editText_BMID.text!!.toString().trim()
 
-                        if (imageListToUpload.size > 0) {
+                        if (File(zipFile).exists()){
                             val args = Bundle()
                             args.putSerializable("imageList", imageListToUpload)
                             args.putString("ssid", "zip_data") //add string because it will be error from api if empty
@@ -97,12 +127,10 @@ class MainActivity : AppCompatActivity() {
                             val uploadActivityIntent = Intent(this, UploadProgressActivity::class.java)
                             uploadActivityIntent.putExtras(args)
                             startActivity(uploadActivityIntent)
-                        }else {
-                            showDialogMessage(getString(R.string.no_remaining_image_to_upload))
                         }
-                    } else {
-                        showDialogMessage(getString(R.string.turnon_internet_upload_image))
-                    }
+                    })
+                } else {
+                    showDialogMessage(getString(R.string.turnon_internet_upload_image))
                 }
             }
         }
@@ -254,7 +282,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun GetBackupFileName(path: String): String? {
+    private fun getBackupFileName(path: String): String? {
         val dirBackup = File(path)
         if (TextUtils.isEmpty(path) || !dirBackup.exists()) {
             showDialogMessage(getString(R.string.the_backup_file))
@@ -263,10 +291,11 @@ class MainActivity : AppCompatActivity() {
         var fileListSrc: Array<File>? = null
         // dirFileSrc = new File( folderBackup );
         fileListSrc = dirBackup.listFiles()
-        if (null == fileListSrc || fileListSrc.size < 1) {
+        if (null == fileListSrc || fileListSrc.isEmpty()) {
             showDialogMessage(getString(R.string.the_backup_file))
             return null
         }
+
         var lp = 0
         var backupFileName: String? = null
         for (one in fileListSrc) {
@@ -276,5 +305,17 @@ class MainActivity : AppCompatActivity() {
             }
         }
         return backupFileName
+    }
+
+    fun <R> CoroutineScope.executeAsyncTask(
+        onPreExecute: () -> Unit,
+        doInBackground: () -> R,
+        onPostExecute: (R) -> Unit
+    ) = launch {
+        onPreExecute()
+        val result = withContext(Dispatchers.IO) { // runs in background thread without blocking the Main Thread
+            doInBackground()
+        }
+        onPostExecute(result)
     }
 }
