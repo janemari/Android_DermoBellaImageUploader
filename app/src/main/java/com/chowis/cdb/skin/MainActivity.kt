@@ -99,9 +99,12 @@ class MainActivity : AppCompatActivity() {
                         val parameters = ZipParameters()
                         parameters.compressionMethod = CompressionMethod.DEFLATE
                         parameters.compressionLevel = CompressionLevel.NORMAL
-                        zip.addFolder(File(Constants.SKINLOOKPATH), parameters)
-                        zip.addFolder(File(Constants.CLIENT_DB_PATH), parameters)
-                        zip.addFolder(File(Constants.PRODUCT_DB_PATH), parameters)
+                        if (File(Constants.SKINLOOKPATH).exists())
+                            zip.addFolder(File(Constants.SKINLOOKPATH), parameters)
+                        if (File(Constants.CLIENT_DB_PATH).exists())
+                            zip.addFolder(File(Constants.CLIENT_DB_PATH), parameters)
+                        if (File(Constants.PRODUCT_DB_PATH).exists())
+                            zip.addFolder(File(Constants.PRODUCT_DB_PATH), parameters)
                     }, onPostExecute = {
                         imageListToUpload.add(zipFile)
 
